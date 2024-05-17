@@ -1,10 +1,13 @@
+import { Exclude } from 'class-transformer';
 import { UserRoles } from 'src/auth/decorators/role.enum';
+import { TextSaving } from 'src/text-saving/entities/text-saving.entity';
 import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToMany,
 } from 'typeorm';
 
 @Entity('user')
@@ -24,7 +27,7 @@ export class User {
   @Column({ default: true })
   status: boolean;
 
-  @Column()
+  @Exclude()
   password: string;
 
   @Column({ type: 'enum', enum: UserRoles, default: UserRoles.Staff })

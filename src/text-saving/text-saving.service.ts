@@ -30,10 +30,10 @@ export class TextSavingService {
   async findOne(id: number) {
     return await this.getTextInfo(id, true);
   }
-  UpdateTextSavingDto;
+
   async update(id: number, updateTextSavingDto: UpdateTextSavingDto) {
     await this.textSavingRepository.update(id, updateTextSavingDto);
-    return await this.getTextInfo(id);
+    return await this.getTextInfo(id, true);
   }
 
   remove(id: number) {

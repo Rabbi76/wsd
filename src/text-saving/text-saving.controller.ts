@@ -12,10 +12,10 @@ import { CreateTextSavingDto } from './dto/create-text-saving.dto';
 import { UpdateTextSavingDto } from './dto/update-text-saving.dto';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { TextSavingService } from './text-saving.service';
-import { AuthGuard } from 'src/auth/auth.guard';
-import { UserRoles } from 'src/auth/decorators/role.enum';
-import { Roles } from 'src/auth/decorators/roles.decorator';
-import { RolesGuard } from 'src/auth/roles.guard';
+import { AuthGuard } from '../auth/auth.guard';
+import { UserRoles } from '../auth/decorators/role.enum';
+import { Roles } from '../auth/decorators/roles.decorator';
+import { RolesGuard } from '../auth/roles.guard';
 
 @ApiTags('Text Saving')
 @Controller('text-saving')
