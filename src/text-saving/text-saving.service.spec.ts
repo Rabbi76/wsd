@@ -45,7 +45,7 @@ describe('TextSavingService', () => {
     expect(service).toBeDefined();
   });
 
-  it('create => Should create a new user and return its data', async () => {
+  it('create => Should create a new text and return its data', async () => {
     jest.spyOn(mockTextSavingRepository, 'save').mockReturnValue(dummyText);
 
     // act
@@ -58,7 +58,7 @@ describe('TextSavingService', () => {
     expect(result).toEqual(dummyText);
   });
 
-  it('findAll => should return an array of user', async () => {
+  it('findAll => should return an array of text', async () => {
     //arrange
 
     const texts = [dummyText];
@@ -72,7 +72,7 @@ describe('TextSavingService', () => {
     expect(mockTextSavingRepository.find).toBeCalled();
   });
 
-  it('findOne => should find a user by a given id and return its data', async () => {
+  it('findOne => should find a text by a given id and return its data', async () => {
     jest.spyOn(mockTextSavingRepository, 'findOne').mockReturnValue(dummyText);
 
     //act
@@ -83,7 +83,7 @@ describe('TextSavingService', () => {
     // expect(mockTextSavingRepository.findOne).toBeCalledWith({ where: { id } });
   });
 
-  it('remove => should find a user by a given id, remove and then return Number of affected rows', async () => {
+  it('remove => should find a text by a given id, remove and then return Number of affected rows', async () => {
     jest.spyOn(mockTextSavingRepository, 'delete').mockReturnValue(dummyText);
 
     //act

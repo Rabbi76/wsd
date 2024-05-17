@@ -53,7 +53,7 @@ describe('TextSavingController', () => {
     expect(controller).toBeDefined();
   });
 
-  it('create => should create a new user by a given data', async () => {
+  it('create => should create a new text by a given data', async () => {
     jest.spyOn(mockTextSavingService, 'create').mockReturnValue(dummyText);
 
     // act
@@ -66,7 +66,7 @@ describe('TextSavingController', () => {
     expect(result).toEqual(dummyText);
   });
 
-  it('findAll => should return an array of user', async () => {
+  it('findAll => should return an array of text', async () => {
     jest.spyOn(mockTextSavingService, 'findAll').mockReturnValue(tests);
 
     //act
@@ -77,7 +77,7 @@ describe('TextSavingController', () => {
     expect(mockTextSavingService.findAll).toBeCalled();
   });
 
-  it('findOne => should find a user by a given id and return its data', async () => {
+  it('findOne => should find a text by a given id and return its data', async () => {
     jest.spyOn(mockTextSavingService, 'findOne').mockReturnValue(dummyText);
 
     //act
@@ -88,7 +88,7 @@ describe('TextSavingController', () => {
     expect(mockTextSavingService.findOne).toBeCalledWith(+id);
   });
 
-  it('update => should find a user by a given id and update its data', async () => {
+  it('update => should find a text by a given id and update its data', async () => {
     jest.spyOn(mockTextSavingService, 'update').mockReturnValue(dummyText);
 
     //act
@@ -98,7 +98,7 @@ describe('TextSavingController', () => {
     expect(mockTextSavingService.update).toBeCalled();
     expect(mockTextSavingService.update).toBeCalledWith(+id, updateTextDto);
   });
-  it('remove => should find a user by a given id, remove and then return Number of affected rows', async () => {
+  it('remove => should find a text by a given id, remove and then return Number of affected rows', async () => {
     jest.spyOn(mockTextSavingService, 'remove').mockReturnValue(dummyText);
 
     //act
