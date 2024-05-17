@@ -13,13 +13,14 @@ export class TextSavingService {
   ) {}
 
   create(createTextSavingDto: CreateTextSavingDto) {
-    return this.textSavingRepository.save(createTextSavingDto).catch((e) => {
-      // console.log(e)
-      return {
-        statusCode: 'UNKNOWN_ERROR',
-        details: e,
-      };
-    });
+    return this.textSavingRepository.save(createTextSavingDto);
+    // .catch((e) => {
+    //   console.log(e)
+    //   return {
+    //     statusCode: 'UNKNOWN_ERROR',
+    //     details: e,
+    //   };
+    // });
   }
 
   findAll() {
