@@ -4,13 +4,18 @@ import { TextSavingService } from './text-saving.service';
 import { TextSaving } from './entities/text-saving.entity';
 import { CreateTextSavingDto } from './dto/create-text-saving.dto';
 import { UpdateTextSavingDto } from './dto/update-text-saving.dto';
-import { UserRoles } from 'src/auth/decorators/role.enum';
+import { AuthGuard } from '../auth/auth.guard';
 
 const dummyText: TextSaving = {
   id: 1,
   text: 'Test',
   created_at: undefined,
   updated_at: undefined,
+};
+
+const mockGuard = {
+  Authorization:
+    'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJpZCI6Mywicm9sZXMiOlsiYWRtaW4iXSwiaWF0IjoxNzE1OTY5ODMxLCJleHAiOjE3MTU5NzM0MzF9.SBilu3k-vfz0S1JXHvZfUTm9nExuUSmuuNxcVGLhsDg',
 };
 
 const createTextDto = {
@@ -45,7 +50,10 @@ describe('TextSavingController', () => {
           useValue: mockTextSavingService,
         },
       ],
-    }).compile();
+    })
+      .overrideGuard(AuthGuard)
+      .useValue(mockGuard)
+      .compile();
 
     controller = module.get<TextSavingController>(TextSavingController);
   });
