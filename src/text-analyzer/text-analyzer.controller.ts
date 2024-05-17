@@ -1,9 +1,11 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, HttpCode, HttpStatus, Param } from '@nestjs/common';
 import { TextAnalyzerService } from './text-analyzer.service';
 import { ApiTags } from '@nestjs/swagger';
+import { Public } from 'src/auth/decorators/public.decorator';
 
 @ApiTags('Text Analyzer')
 @Controller('text-analyzer')
+@Public()
 export class TextAnalyzerController {
   constructor(private readonly textAnalyzerService: TextAnalyzerService) {}
 
