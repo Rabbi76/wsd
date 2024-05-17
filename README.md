@@ -43,8 +43,8 @@ $ npm run test:cov
 ## All List
 
 - Use Nest (NestJS) framework for building efficient, scalable Node.js server-side applications
-- Swagger APi Enable
-- TypoOrm Supported 
+- Swagger API Enable
+- TypeORM Use & Supported 
 - Mysql Database use
 - Need to set the .env to database config
 - Authentication & Authorization Apply
