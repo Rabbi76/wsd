@@ -6,6 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { typeOrmAsyncConfig } from './config/typeorm.config';
 import { TextSavingModule } from './text-saving/text-saving.module';
+import { TextAnalyzerModule } from './text-analyzer/text-analyzer.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { TextSavingModule } from './text-saving/text-saving.module';
     TypeOrmModule.forRootAsync(typeOrmAsyncConfig),
     UsersModule,
     TextSavingModule,
+    TextAnalyzerModule,
   ],
   controllers: [AppController],
   providers: [AppService],
