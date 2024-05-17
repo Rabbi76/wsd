@@ -1,3 +1,4 @@
+import { UserRoles } from 'src/auth/decorators/role.enum';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -15,7 +16,7 @@ export class User {
   name: string;
 
   @Column({ length: 15, nullable: true })
-  phone: string;
+  phone?: string;
 
   @Column({ length: 100, unique: true })
   email: string;
@@ -25,6 +26,9 @@ export class User {
 
   @Column()
   password: string;
+
+  @Column({ type: 'enum', enum: UserRoles, default: UserRoles.Staff })
+  role: UserRoles;
 
   @CreateDateColumn({
     type: 'timestamp',

@@ -7,6 +7,7 @@ import {
   IsEnum,
   Length,
 } from 'class-validator';
+import { UserRoles } from 'src/auth/decorators/role.enum';
 
 export class CreateUserDto {
   @ApiProperty({
@@ -21,17 +22,17 @@ export class CreateUserDto {
     description: 'user Phone Number',
     example: '112233',
   })
-  @IsNotEmpty()
+  @IsOptional()
   @IsString()
-  phone: string;
+  phone?: string;
 
   @ApiProperty({
     description: 'User Email Address',
-    example: 'test@test.ca',
+    example: 'test@test.com',
   })
-  @IsOptional()
+  @IsNotEmpty()
   @IsString()
-  email?: string;
+  email: string;
 
   @ApiProperty({
     description: 'User Status',
@@ -46,4 +47,11 @@ export class CreateUserDto {
   @IsNotEmpty()
   @Length(6, 24)
   password: string;
+
+  @ApiProperty({
+    description: 'User Role',
+    example: 'staff',
+  })
+  @IsEnum(UserRoles)
+  role: UserRoles;
 }
