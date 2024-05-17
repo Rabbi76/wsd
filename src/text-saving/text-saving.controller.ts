@@ -6,14 +6,23 @@ import {
   Patch,
   Param,
   Delete,
+  UseGuards,
 } from '@nestjs/common';
 import { CreateTextSavingDto } from './dto/create-text-saving.dto';
 import { UpdateTextSavingDto } from './dto/update-text-saving.dto';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { TextSavingService } from './text-saving.service';
+import { AuthGuard } from 'src/auth/auth.guard';
+import { UserRoles } from 'src/auth/decorators/role.enum';
+import { Roles } from 'src/auth/decorators/roles.decorator';
+import { RolesGuard } from 'src/auth/roles.guard';
 
 @ApiTags('Text Saving')
 @Controller('text-saving')
+@UseGuards(AuthGuard)
+@UseGuards(RolesGuard)
+@Roles(UserRoles.Admin, UserRoles.Staff)
+@ApiBearerAuth('bearer')
 export class TextSavingController {
   constructor(private readonly textSavingService: TextSavingService) {}
 

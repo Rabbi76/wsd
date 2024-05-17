@@ -38,7 +38,7 @@ export class AuthService {
     const user = await this.usersService.create({
       name: 'admin',
       phone: '112233',
-      email: 'test@test.com',
+      email: 'testa@test.com',
       role: UserRoles.Admin,
       password: 'Password@123',
     });
