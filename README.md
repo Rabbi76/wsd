@@ -5,6 +5,11 @@
 ## Installation
 
 ```bash
+# Database Setup
+$ Start A Mysql Server 
+$ Set the Configure into .env
+
+# Server install
 $ npm install
 ```
 
