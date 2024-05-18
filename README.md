@@ -7,9 +7,9 @@
 ```bash
 # Database Setup
 $ Start A Mysql Server 
-$ Set the Configure into .env
+$ Set the Configure to .env
 
-# Server install
+# Server install (1 Time)
 $ npm install
 ```
 
